@@ -1,0 +1,35 @@
+<div class="home-container">
+    <div class="header">
+        <h1><span class="primary">A</span>ura<span class="primary">W</span>atch</h1>
+    </div>
+    <div class="sub-header">
+        <p>AuraWatch is a dynamic movie streaming platform for film lovers, offering a vast library of movies from all genres and eras.</p>
+    </div>
+    <div class="search-bar">
+        <label  [ngClass]="{'focused': isInputFocused}" for="search" class="search-label">Search for something.</label>
+        <input (focus)="onFocus()" (blur)="onBlur()" type="text" name="search" id="search" placeholder="eg. Breaking bad">
+        <i class="bi bi-search search-icon"></i>   
+    </div>
+    <app-segmented-control (mediaChanged)="onMediaFilterChange($event)"></app-segmented-control>
+    <div class="selected-media-filter">
+        <p>{{selectedMediaFilter}}</p>
+    </div>
+</div>
+<div class="view">
+    <app-media-card
+     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
+     [mediaName]="'Breaking Bad'"
+     [mediaRating]="9.8"></app-media-card>
+     <app-media-card
+     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
+     [mediaName]="'Breaking Bad'"
+     [mediaRating]="9.8"></app-media-card>
+     <app-media-card
+     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
+     [mediaName]="'Breaking Bad'"
+     [mediaRating]="9.8"></app-media-card>
+     <app-media-card
+     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
+     [mediaName]="'Breaking Bad'"
+     [mediaRating]="9.8"></app-media-card>
+</div>

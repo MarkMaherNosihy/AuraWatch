@@ -1,0 +1,7 @@
+<div class="segments-container">
+    @for (segment of segments; track $index) {
+        <div class="segment" [ngClass]="{'active-item': segment.isActive}" (click)="setActive(segment)">
+            {{segment.name}}
+        </div>
+    }
+</div>
