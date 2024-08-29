@@ -1,0 +1,135 @@
+@import '../../../themes/theme.scss';
+
+.details-container{
+    
+    .details-banner{
+        position: relative;
+        background-image: url('https://image.tmdb.org/t/p/w1280/6YwkGolwdOMNpbTOmLjoehlVWs5.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 35rem;
+        border-radius: 5%;
+        margin-bottom: 8em;
+    }
+
+    .floating-details{
+        position: absolute;
+        bottom: -70px;
+        left: 10%;
+        padding: 40px;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 15px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        backdrop-filter: blur(24px);
+    }
+    .details-section{
+        margin: 2em;
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+        .poster-image{
+            width: 45%;
+            background-image: url('https://img.fruugo.com/product/7/41/14532417_max.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            height: 750px;
+        }
+
+        .details-info{
+            width: 40%;
+            .rate{
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                .count{
+                    color: $grey-400;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+            }
+            .info-header{
+                color: $primary-50;
+                font-size: 1.5rem;
+                margin-bottom: 1.2em;
+            }
+            .info-paragraph{
+                color: $grey-400;
+                font-size: 1.1rem;
+                margin-bottom: 1.2em;
+                line-height: 1.6;
+            }
+            .detail-container{
+
+                margin-bottom: 1em;
+                .label{
+                    color: $grey-400;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+                .detail{
+                    color: $grey-100;
+                    font-size: 1.4rem;
+                }
+                .genres{
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+}
+
+.skeleton-container{
+    display: flex;
+    gap: 2em;
+    .skeleton-1{
+        width: 100%;
+    }
+    .skeleton-2{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .details-container{
+        .floating-details{
+            left: 0;
+            font-size: 2rem;
+            width: 100%;
+        }
+        .details-section{
+            flex-direction: column-reverse;
+            .poster-image{
+                width: 100%;
+            }
+            .details-info{
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 650px) {
+    .details-container{
+        .floating-details{
+            font-size: 1.5rem;
+        }
+        .details-section{
+            flex-direction: column-reverse;
+            .poster-image{
+                width: 100%;
+                background-size: contain;
+                height: 400px;
+            }
+            .details-info{
+                width: 100%;
+            }
+        }
+    }
+
+}

@@ -12,24 +12,40 @@
     </div>
     <app-segmented-control (mediaChanged)="onMediaFilterChange($event)"></app-segmented-control>
     <div class="selected-media-filter">
-        <p>{{selectedMediaFilter}}</p>
+        <p>{{selectedMediaFilter|titlecase}}</p>
     </div>
 </div>
 <div class="view">
-    <app-media-card
-     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
-     [mediaName]="'Breaking Bad'"
-     [mediaRating]="9.8"></app-media-card>
-     <app-media-card
-     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
-     [mediaName]="'Breaking Bad'"
-     [mediaRating]="9.8"></app-media-card>
-     <app-media-card
-     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
-     [mediaName]="'Breaking Bad'"
-     [mediaRating]="9.8"></app-media-card>
-     <app-media-card
-     [previewImageUrl]="'https://static.toiimg.com/thumb/91961886/91961886.jpg?height=746&width=420&resizemode=76&imgsize=68616'"
-     [mediaName]="'Breaking Bad'"
-     [mediaRating]="9.8"></app-media-card>
+    @if(isLoading){
+        @for (card of dummyCards; track $index) {
+            <ngx-skeleton-loader [theme]="{
+                'background-color': '#20283e',
+                'height': '25rem',
+                'border-radius': '10px'
+            }" animation="pulse"></ngx-skeleton-loader>
+        }
+    }
+    @else {
+        @for (trend of trendsList; track $index) {
+            @if(selectedMediaFilter === 'all'){
+                <app-media-card 
+                [routerLink]="'/'+'details'+'/'+trend.media_type+'/'+trend.id"
+                [previewImageUrl]="'https://image.tmdb.org/t/p/w500/'+trend.poster_path"
+                [mediaName]="trend.title ? trend.title : trend.name"
+                [mediaRating]="trend.vote_average"></app-media-card>
+            }@else {
+                <app-media-card 
+                *ngIf="selectedMediaFilter === trend.media_type"
+                [routerLink]="'/'+'details'+'/'+trend.media_type+'/'+trend.id"
+                [previewImageUrl]="'https://image.tmdb.org/t/p/w500/'+trend.poster_path"
+                [mediaName]="trend.title ? trend.title : trend.name"
+                [mediaRating]="trend.vote_average"></app-media-card>
+            }
+
+
+
+        }
+    }
+
+
 </div>

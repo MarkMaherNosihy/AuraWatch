@@ -28,6 +28,19 @@ export class SegmentedControlComponent {
   setActive(segment: any){
     this.segments.forEach((seg)=>seg.isActive = false);
     segment.isActive = true;
-    this.mediaChanged.emit(segment.name);
+    switch(segment.name){
+      case 'All':
+      this.mediaChanged.emit('all');
+      break;
+      case 'Movies':
+      this.mediaChanged.emit('movie');
+      break;
+      case 'TV Shows':
+      this.mediaChanged.emit('tv');
+      break;
+      default:
+        // Optionally handle other cases or default behavior
+        break;
+    }
   }
 }

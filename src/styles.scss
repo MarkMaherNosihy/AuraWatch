@@ -1,3 +1,4 @@
+@import '../src/themes/theme.scss';
 *{
     color: white;
     box-sizing: border-box;
@@ -5,7 +6,9 @@
     padding: 0;
     list-style: none; /* Remove default bullet points */
 }
-
+p{
+  margin: 0;
+}
 body{
     background-image: url('https://mailehereko.pramodpoudel.com.np/_nuxt/img/bg.1c9b34b.png');
     background-repeat: repeat-y;
@@ -18,5 +21,29 @@ body{
     BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, 
     Ubuntu, Cantarell, Open Sans, Helvetica Neue, 
     sans-serif;
+    overflow-x:hidden;
     //background: linear-gradient(to bottom right, red, yellow 50%, green);
 }
+
+/* Scrollbar container */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar */
+  }
+  
+  /* Track (background of the scrollbar) */
+  ::-webkit-scrollbar-track {
+    background-color: $dark-1;
+  }
+  
+  /* Handle (scrollbar thumb) */
+  ::-webkit-scrollbar-thumb {
+ /* Color of the scrollbar thumb */
+ background-color: $grey-800;
+    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+  }
