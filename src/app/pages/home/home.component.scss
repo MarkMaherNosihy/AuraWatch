@@ -87,6 +87,17 @@
     column-gap: 24px;
     align-items: start;
 }
+.paginator{
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    margin-top: 2em;
+    background-color: rgba(0,0,0,0.2);
+    filter: blur(0.03rem);
+    padding: 1em;
+    border-radius: 10px;
+    justify-content: end;
+}
 @media screen and (max-width: 1024px) {
 
     .view{

@@ -8,11 +8,12 @@ import { map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { TV } from '../../models/tv.interface';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { RecommendationsComponent } from "../../components/recommendations/recommendations.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RatingComponent, CommonModule, NgxSkeletonLoaderModule],
+  imports: [RatingComponent, CommonModule, NgxSkeletonLoaderModule, RecommendationsComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -37,7 +38,7 @@ export class DetailsComponent implements OnInit {
       }
     }
     fetchMovie(){
-      this.api.get(`${Endpoints.MOVIE_ID(this.selectedMedia)}`).pipe(
+      this.api.get(`${Endpoints.MOVIE_ID(this.selectedMedia)}`, '').pipe(
         map((res: any): Movie => {
           console.log(res);
           return {
@@ -67,7 +68,7 @@ export class DetailsComponent implements OnInit {
       });
     }
     fetchTvShow(){
-      this.api.get(`${Endpoints.TV_ID(this.selectedMedia)}`).pipe(
+      this.api.get(`${Endpoints.TV_ID(this.selectedMedia)}`, '').pipe(
         map((res: any): TV => {
           return {
             backdrop_path: res.backdrop_path,

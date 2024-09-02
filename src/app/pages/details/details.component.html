@@ -201,3 +201,9 @@
   </div>
 </div>
 }
+<div class="recommendation">
+  <div class="header">
+    Similar {{type === 'tv' ? 'TV Shows' : "Movies"}}
+  </div>
+  <app-recommendations [id]="selectedMedia" [type]="type"></app-recommendations>
+</div>

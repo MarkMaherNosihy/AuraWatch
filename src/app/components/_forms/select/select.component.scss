@@ -1,0 +1,14 @@
+@import '../../../../themes/theme.scss';
+
+.select{
+    background-color: $dark-1;
+    border: none;
+    padding: 0.5em 2em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+.select:hover{
+    background-color: $grey-400;
+}

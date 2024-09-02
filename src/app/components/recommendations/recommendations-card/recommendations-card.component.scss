@@ -1,15 +1,13 @@
-@import "../../../themes/theme.scss";
+@import "../../../../themes/theme.scss";
 .card-container{
     position: relative;
     background-color: $dark-1;
     border-radius: 10px;
     padding: 10px;
     overflow: hidden;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0;
     cursor: pointer;
     .card-content{
+        position: relative;
         width: 100%;
         overflow: hidden;
         display: inline-block;
@@ -18,7 +16,8 @@
             width: 100%;
             border-radius: 10px;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
+            background-position: center ;
             transition: ease-out 0.2s;
             overflow: hidden;
          }
@@ -33,26 +32,21 @@
         }
     }
     .media-name{
+        
+        position: absolute;
+        bottom: 0;
+        left: 50%;
         text-align: center;
         margin: 0;
         padding: 10px 0;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 15px;
     }
 
 
 }
 
-@keyframes appear{
-    from {
-        opacity: 0;
-        scale: 0.5;
-    }
-    to{
-        opacity: 1;
-        scale: 1;
-    }
-}
+
 @media screen and (max-width: 1200px) {
    .card-container{
         .card-content{
@@ -67,13 +61,12 @@
     .card-container{
          .card-content{
              .image-container{
-                 height: 25rem;
+                 height: 15rem;
              }
          }
     }
  }
-
-@media screen and (max-width: 560px) {
+ @media screen and (max-width: 560px) {
     .card-container{
          .card-content{
              .image-container{

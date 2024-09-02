@@ -41,11 +41,11 @@
                 [mediaName]="trend.title ? trend.title : trend.name"
                 [mediaRating]="trend.vote_average"></app-media-card>
             }
-
-
-
         }
     }
 
 
+</div>
+<div class="paginator">
+    <app-paginator (pageChanged)="onPagination($event)" [currentPage]="currentPage"></app-paginator>
 </div>

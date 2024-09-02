@@ -1,0 +1,28 @@
+.swiper-button-next {
+    background-color: #000; /* Change background color */
+    color: #fff; /* Change text color */
+    border-radius: 50%; /* Make it circular */
+    padding: 10px; /* Add some padding */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    
+    &:hover {
+      background-color: #555; /* Change background color on hover */
+    }
+  }
+  
+  /* Style for the navigation previous arrow */
+  .swiper-button-prev {
+    background-color: #000; /* Change background color */
+    color: #fff; /* Change text color */
+    border-radius: 50%; /* Make it circular */
+    padding: 10px; /* Add some padding */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    
+    &:hover {
+      background-color: #555; /* Change background color on hover */
+    }
+  }
