@@ -2,14 +2,23 @@
   <div class="card-content">
     <div
       class="image-container"
-      [style.background-image]="'url(' + previewImageUrl + ')'"
+      [style.background-image]="'url(' +'https://image.tmdb.org/t/p/w500/'+ media.poster_path + ')'"
     ></div>
 
     <div class="rating">
-      <app-rating [rating]="mediaRating"></app-rating>
+      <app-rating [rating]="media.vote_average"></app-rating>
     </div>
   </div>
   <p class="media-name">
-    {{ mediaName }}
+    {{ media.name ? media.name : media.original_title }}
   </p>
+  <div class="heart" >
+    <app-heart (click)="addToFavorite($event)"[isFavorite]="isFavorite" ></app-heart>
+  </div>
+  @if(isWatched){
+    <div class="watched">
+      Watched
+    </div>
+  }
+
 </div>

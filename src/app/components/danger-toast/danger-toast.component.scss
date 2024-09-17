@@ -1,0 +1,17 @@
+@import '../../../themes/theme.scss';
+
+:host {
+    background-color: $danger;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 10px 10px 10px 10px;
+    max-width: 450px;
+    border-radius: 3px 3px 3px 3px;
+    pointer-events: all;
+    cursor: pointer;
+  }
+  .btn-pink {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+  }

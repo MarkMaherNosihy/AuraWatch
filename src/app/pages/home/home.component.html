@@ -6,9 +6,12 @@
         <p>AuraWatch is a dynamic movie streaming platform for film lovers, offering a vast library of movies from all genres and eras.</p>
     </div>
     <div class="search-bar">
-        <label  [ngClass]="{'focused': isInputFocused}" for="search" class="search-label">Search for something.</label>
-        <input (focus)="onFocus()" (blur)="onBlur()" type="text" name="search" id="search" placeholder="eg. Breaking bad">
-        <i class="bi bi-search search-icon"></i>   
+        <div class="search-input">
+            <input (focus)="onFocus()" (blur)="onBlur()" [(ngModel)]="keyword" type="text" name="search" id="search" placeholder="eg. Breaking bad">
+            <button class="search-icon" (click)="onSearch()">
+                <i class="bi bi-search "></i>   
+            </button>
+        </div>
     </div>
     <app-segmented-control (mediaChanged)="onMediaFilterChange($event)"></app-segmented-control>
     <div class="selected-media-filter">
@@ -30,16 +33,15 @@
             @if(selectedMediaFilter === 'all'){
                 <app-media-card 
                 [routerLink]="'/'+'details'+'/'+trend.media_type+'/'+trend.id"
-                [previewImageUrl]="'https://image.tmdb.org/t/p/w500/'+trend.poster_path"
-                [mediaName]="trend.title ? trend.title : trend.name"
-                [mediaRating]="trend.vote_average"></app-media-card>
+                [media]="trend"
+                [isFavorite]="isFavorite(trend)"
+                ></app-media-card>
             }@else {
                 <app-media-card 
                 *ngIf="selectedMediaFilter === trend.media_type"
                 [routerLink]="'/'+'details'+'/'+trend.media_type+'/'+trend.id"
-                [previewImageUrl]="'https://image.tmdb.org/t/p/w500/'+trend.poster_path"
-                [mediaName]="trend.title ? trend.title : trend.name"
-                [mediaRating]="trend.vote_average"></app-media-card>
+                [media]="trend"
+                [isFavorite]="isFavorite(trend)"></app-media-card>
             }
         }
     }
@@ -47,5 +49,5 @@
 
 </div>
 <div class="paginator">
-    <app-paginator (pageChanged)="onPagination($event)" [currentPage]="currentPage"></app-paginator>
+    <app-paginator (pageChanged)="onPagination($event)" [currentPage]="currentPage" [totalPages]="totalPages"></app-paginator>
 </div>

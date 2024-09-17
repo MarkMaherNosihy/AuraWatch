@@ -11,7 +11,9 @@ export class RatingComponent implements OnInit {
   @Input() rating!: number;
 
   ngOnInit(): void {
-    this.rating = parseFloat(this.rating.toFixed(2));
+    if(this.rating){
+      this.rating = parseFloat(this.rating.toFixed(2));
+    }
 
   }
 }

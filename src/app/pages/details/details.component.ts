@@ -9,11 +9,13 @@ import { CommonModule } from '@angular/common';
 import { TV } from '../../models/tv.interface';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RecommendationsComponent } from "../../components/recommendations/recommendations.component";
+import { SafePipe } from '../../pipes/safe-pipe';
+import { Actor } from '../../models/actor.interface';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RatingComponent, CommonModule, NgxSkeletonLoaderModule, RecommendationsComponent],
+  imports: [RatingComponent, CommonModule, NgxSkeletonLoaderModule, RecommendationsComponent, SafePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -22,10 +24,12 @@ export class DetailsComponent implements OnInit {
   api = inject(ApiService);
   movieDetails!: Movie;
   tvShowDetails!: TV;
+  cast!: Actor[];
+  trailerId!: string;
   selectedMedia!: string | null;
   type!: string | null;
   contentLoading: boolean = true;
-
+  castShowMore: boolean = false;
     ngOnInit(): void {
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
@@ -36,11 +40,23 @@ export class DetailsComponent implements OnInit {
       }else{
         this.fetchTvShow();
       }
+
+      this.route.params.subscribe(params => {
+        this.castShowMore = false;
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        this.selectedMedia = this.route.snapshot.paramMap.get('id');
+        this.type = this.route.snapshot.paramMap.get('type');
+        if(this.type === 'movie'){
+          this.fetchMovie();
+        }else{
+          this.fetchTvShow();
+        }
+      });
     }
     fetchMovie(){
       this.api.get(`${Endpoints.MOVIE_ID(this.selectedMedia)}`, '').pipe(
         map((res: any): Movie => {
-          console.log(res);
           return {
             backdrop_path: res.backdrop_path,
             genres: res.genres,
@@ -60,6 +76,25 @@ export class DetailsComponent implements OnInit {
         next: (movieDetails: Movie) => {
           this.movieDetails = movieDetails;
           this.contentLoading = false;
+          this.api.get(`movie/${this.movieDetails.id}/videos`, '').subscribe((res: any)=>{
+            this.trailerId = res.results[0].key;
+          })
+          this.api.get(`movie/${this.movieDetails.id}/credits`, '').pipe(map((res: any): Actor[] =>{
+            return res.cast.map((actor: any)=>{
+              if(actor.known_for_department === "Acting"){
+                return {
+                  name: actor.name,
+                  character: actor.character,
+                  profile_path: actor.profile_path
+                }
+              }
+              return null;
+
+            }).filter((actor: any) => actor !== null)
+          })).subscribe((res: Actor[])=>{
+            this.cast = res;
+            console.log(res);
+          })
         },
         error: (err) => {
           console.log(err);
@@ -84,13 +119,35 @@ export class DetailsComponent implements OnInit {
             first_air_date: res.first_air_date,
             tagline: res.tagline,
             vote_average: res.vote_average,
-            vote_count: res.vote_count
+            vote_count: res.vote_count,
+            id: res.id
           };
         })
       ).subscribe({
         next: (tvShowDetails: TV) => {
           this.tvShowDetails = tvShowDetails;
           this.contentLoading = false;
+          this.api.get(`tv/${this.tvShowDetails.id}/videos`, '').subscribe((res: any)=>{
+            this.trailerId = res.results[0].key;
+
+            this.api.get(`tv/${this.tvShowDetails.id}/credits`, '').pipe(map((res: any): Actor[] =>{
+              return res.cast.map((actor: any)=>{
+                if(actor.known_for_department === "Acting"){
+                  return {
+                    name: actor.name,
+                    character: actor.character,
+                    profile_path: actor.profile_path
+                  }
+                }
+                return null;
+  
+              }).filter((actor: any) => actor !== null)
+            })).subscribe((res: Actor[])=>{
+              this.cast = res;
+              console.log(res);
+            })
+          })
+
         },
         error: (err) => {
           console.log(err);

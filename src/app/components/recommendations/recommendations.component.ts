@@ -6,11 +6,12 @@ import { Media } from '../../models/media.interface';
 import { RecommendationsCardComponent } from "./recommendations-card/recommendations-card.component";
 import { SwiperOptions } from 'swiper/types';
 import { SwiperDirective } from '../../directives/swiper.directive';
+import {  RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recommendations',
   standalone: true,
-  imports: [MediaCardComponent, RecommendationsCardComponent, SwiperDirective],
+  imports: [MediaCardComponent, RecommendationsCardComponent, SwiperDirective, RouterModule],
   templateUrl: './recommendations.component.html',
   styleUrl: './recommendations.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

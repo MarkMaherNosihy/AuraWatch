@@ -1,0 +1,55 @@
+<div class="wishlist-container">
+    <h1 class="g-header">
+        Your Watch List 
+    </h1>
+    @for (item of favorites; track $index) {
+        <div  class="favorite-card" @cardAnimation>
+            <div
+            [routerLink]="'/details/'+ item.media.media_type +'/'+item.media.id"
+              class="image" [style.background-image]="'url(' + 'https://image.tmdb.org/t/p/w500/'+ item.media.poster_path + ')'">
+            </div>
+            <div class="details">
+                <div class="main-info">
+                    <div class="info">
+                        <h1 class="title">{{item.media.name ? item.media.name : item.media.original_title}}
+                        </h1>
+                        <p class="type">{{item.media.media_type ? item.media.media_type : 'N/A'}}</p>
+                    </div>
+                <app-rating [rating]="item.media.vote_average"></app-rating>
+                   
+                </div>
+
+
+                <div class="props">
+                    <div class="prop" (click)="deleteFavorite(item._id)">
+                        <i  class="bi bi-heartbreak-fill remove"></i>
+                        <span class="remove-text">Remove from wishlist</span>
+                    </div>
+                    <div class="prop" (click)="toggleWatched(item._id)">
+                        @if(item.media.isWatched){
+                            <i class="bi bi-x-lg not-marked"></i>
+                            <span class="not-marked-text">Mark as not watched</span>
+                        }@else {
+                            <i class="bi bi-check2 marked"></i>
+                            <span class="mark-text">Mark as watched</span>
+                        }
+                    </div>
+                </div>
+                @if(item.media.isWatched){
+                    <div class="watched">
+                        Watched
+                    </div>
+                }
+            </div>
+
+        </div>
+    }
+
+    @if(favorites.length === 0){
+        <div class="empty-wishlist">
+            <p >There's nothing in your wish list </p>
+            <i class="bi bi-bag icon"></i>
+        </div>
+    }
+
+</div>

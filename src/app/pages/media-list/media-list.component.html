@@ -19,12 +19,11 @@
     
     @else {
         @for (media of mediaList; track $index) {
-          
+    
                 <app-media-card 
                 [routerLink]="'/'+'details'+'/'+(mediaType === 'movies' ? 'movie':'tv')+'/'+media.id"
-                [previewImageUrl]="'https://image.tmdb.org/t/p/w500/'+media.poster_path"
-                [mediaName]="media.title ? media.title : media.name"
-                [mediaRating]="media.vote_average"></app-media-card>
+                [media]="media"
+                ></app-media-card>
         }
     }
 

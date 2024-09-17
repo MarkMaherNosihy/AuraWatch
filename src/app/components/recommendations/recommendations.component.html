@@ -2,6 +2,7 @@
         @for (item of list; track $index) {
             <swiper-slide>
                 <app-recommendations-card 
+                [routerLink]="'/details/'+item.media_type+'/'+item.id"
                 [mediaName]="item.original_title" [mediaRating]="item.vote_average" [previewImageUrl]="'https://image.tmdb.org/t/p/w500/' + item.poster_path"
                 ></app-recommendations-card>
             </swiper-slide>

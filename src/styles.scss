@@ -47,3 +47,42 @@ body{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
   }
+
+
+.g-header{
+  font-size: 3rem;
+  color: $primary-50;
+  text-align: center;
+  margin-top: 0.5em; 
+  margin-bottom: 1em;
+}
+
+.validation-error{
+  display: flex;
+  flex-direction: column;
+  p{
+    color: $danger;
+    font-size: 0.8rem;
+    margin-top: 0.3em;
+  }
+}
+.server-error{
+  h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1em;
+    color: $danger;
+    text-align: center;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .g-header{
+    font-size: 2rem;
+    
+  }
+}
+#toast-container > div {
+  opacity:1;
+}

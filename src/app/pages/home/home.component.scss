@@ -28,44 +28,35 @@
     .search-bar{
         margin-bottom: 2em;
         position: relative;
-        input{
-            background-color: $dark-1;
-            padding: 20px 60px;
-            width: 80%;
-            border: 2px solid $grey-800;
-            border-radius: 12px;
+        .search-input{
+            position: relative;
+            input{
+                background-color: $dark-1;
+                padding: 20px 60px;
+                width: 100%;
+                border: 2px solid $grey-800;
+                border-radius: 12px;
+    
+            }
+            .search-icon{
+                position: absolute;
+                top: 50%; /* Move down 50% of the parent's height */
+                right: 15px; /* Align left as per your requirement */
+                transform: translateY(-50%); /* Move up 50% of the child's own height */
+                background: none;
+                border: none;
+                i{
+                    font-size: 30px;
+                    color: $grey-800;
+                    width: fit-content;
+                    cursor: pointer;
+                }
+                i:hover{
+                    color: $primary-50;
+                }
+            }
+        }
 
-        }
-        input::placeholder{
-            color: $grey-400;
-            opacity: 0;
-        }
-        input:focus::placeholder {
-            opacity: 1; /* Show placeholder text on focus */
-          }
-        
-        .search-icon{
-            position: absolute;
-            top: 50%; /* Move down 50% of the parent's height */
-            left: 15px; /* Align left as per your requirement */
-            right: 0; /* Align right as per your requirement */
-            transform: translateY(-50%); /* Move up 50% of the child's own height */
-            font-size: 30px;
-            color: $grey-800;
-            width: fit-content;
-        }
-        .search-label{
-            position: absolute;
-            top: 50%; /* Move down 50% of the parent's height */
-            left: 70px; /* Align left as per your requirement */
-            right: 0; /* Align right as per your requirement */
-            transform: translateY(-50%); /* Move up 50% of the child's own height */
-            color: $grey-400;
-            width: fit-content;
-            cursor: text;
-            transition: ease-out 0.2s
-
-        }
         .focused{
             top: 20%;
 
@@ -85,17 +76,18 @@
     row-gap: 24px;
     grid-column-gap: 24px;
     column-gap: 24px;
-    align-items: start;
+    align-items: stretch;
 }
 .paginator{
     position: sticky;
     bottom: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2em;
-    background-color: rgba(0,0,0,0.2);
+    background-color: $grey-800;
     filter: blur(0.03rem);
     padding: 1em;
-    border-radius: 10px;
     justify-content: end;
 }
 @media screen and (max-width: 1024px) {
@@ -117,6 +109,12 @@
     .view{
         grid-template-columns: repeat(2, minmax(0, 1fr));
 
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .paginator{
+        justify-content: center;
     }
 }
 

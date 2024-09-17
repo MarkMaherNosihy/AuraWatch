@@ -12,6 +12,20 @@
         height: 35rem;
         border-radius: 5%;
         margin-bottom: 8em;
+        margin-top: 350px;
+    }
+    .trailer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        iframe{
+            width: 40%;
+            height: 400px;
+            position: absolute;
+            z-index: 100;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
     }
 
     .floating-details{
@@ -105,8 +119,65 @@
     }
 }
 
+.cast{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 1.5em;
+    position: relative;
+    .show-more{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        button{
+            background: none;
+            background-color: $primary;
+            padding: 1em;
+            font-size: 1rem;
+            color: $primary-50;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: $dark-1;
+        }
+    }
+    .actor{
+        display: flex;
+        width: 33.3%;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        .actor-image{
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+        }
+        .info{
+            display: flex;
+            flex-direction: column;
+            h1{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 860px) {
     .details-container{
+        .trailer{
+
+            iframe{
+                width: 80%;
+
+            }
+        }
+    
         .floating-details{
             left: 0;
             font-size: 2rem;
@@ -122,11 +193,23 @@
             }
         }
     }
+    .cast{
+        .actor{
+            width: 50%;
+        }
+    }
 }
 @media screen and (max-width: 650px) {
     .details-container{
         .floating-details{
             font-size: 1.5rem;
+        }
+        .trailer{
+
+            iframe{
+                width: 100%;
+
+            }
         }
         .details-section{
             flex-direction: column-reverse;
@@ -138,6 +221,11 @@
             .details-info{
                 width: 100%;
             }
+        }
+    }
+    .cast{
+        .actor{
+            width: 100%;
         }
     }
 

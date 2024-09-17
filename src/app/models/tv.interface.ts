@@ -14,6 +14,7 @@ export interface TV {
     status: string
     tagline: string
     vote_average: number
+    id:number;
     vote_count: number
   }
   

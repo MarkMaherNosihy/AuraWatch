@@ -12,5 +12,5 @@ export class RecommendationsCardComponent {
 
   @Input() mediaRating!: number;
   @Input() previewImageUrl!: string;
-  @Input() mediaName!: string;
+  @Input() mediaName!: string|undefined;
 }

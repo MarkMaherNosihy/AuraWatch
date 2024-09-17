@@ -1,5 +1,17 @@
 @if(type==='movie' && !contentLoading){
 <div class="details-container">
+  <div class="trailer">
+    <iframe 
+    width="560" 
+    height="315" 
+    class="iframe"
+    [src]="'https://www.youtube.com/embed/'+ trailerId | safe" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    >
+  </iframe>
+  </div>
   <div
     class="details-banner"
     [style.background-image]="
@@ -9,6 +21,7 @@
       ')'
     "
   >
+
     <div class="floating-details">
       {{ movieDetails.title }}
     </div>
@@ -76,6 +89,19 @@
 </div>
 } @else if(type==='tv' && !contentLoading) {
 <div class="details-container">
+  <div class="trailer">
+    <iframe 
+    width="560" 
+    height="315" 
+    class="iframe"
+    [src]="'https://www.youtube.com/embed/'+ trailerId | safe" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    >
+  </iframe>
+  </div>
+
   <div
     class="details-banner"
     [style.background-image]="
@@ -85,9 +111,11 @@
       ')'
     "
   >
+  
     <div class="floating-details">
       {{ tvShowDetails.name }}
     </div>
+
   </div>
 
   <div class="details-section">
@@ -201,6 +229,35 @@
   </div>
 </div>
 }
+<h1 class="header">Cast</h1>
+<div class="cast">
+
+@if(castShowMore === false){
+  @for (actor of cast | slice:0:8; track $index) {
+    <div class="actor">
+      <div class="actor-image" [style.background-image]="actor.profile_path ? 'url(' +'https://image.tmdb.org/t/p/w500/'+ actor.profile_path + ')' : 'url('+'../../../assets/Generic-Profile.jpg'+')'"></div>
+      <div class="info">
+        <h1>{{actor.name}}</h1>
+        <p>{{actor.character}}</p>
+      </div>
+    </div>
+  }
+}@else {  
+  @for (actor of cast; track $index) {
+    <div class="actor">
+      <div class="actor-image" [style.background-image]="actor.profile_path ? 'url(' +'https://image.tmdb.org/t/p/w500/'+ actor.profile_path + ')' : 'url('+'../../../assets/Generic-Profile.jpg'+')'"></div>
+      <div class="info">
+        <h1>{{actor.name}}</h1>
+        <p>{{actor.character}}</p>
+      </div>
+    </div>
+  }
+}
+  <div class="show-more">
+    <button (click)="castShowMore = !castShowMore"> {{castShowMore === true ? "Show less" : "Show All"}}</button>
+  </div>
+</div>
+
 <div class="recommendation">
   <div class="header">
     Similar {{type === 'tv' ? 'TV Shows' : "Movies"}}

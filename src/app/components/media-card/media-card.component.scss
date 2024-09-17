@@ -5,7 +5,10 @@
     border-radius: 10px;
     padding: 10px;
     overflow: hidden;
+    height: 100%;
     animation: appear linear;
+    display: flex;
+    flex-direction: column;
     animation-timeline: view();
     animation-range: entry 0;
     cursor: pointer;
@@ -34,14 +37,28 @@
     }
     .media-name{
         text-align: center;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0;
         padding: 10px 0;
         font-weight: 600;
         font-size: 18px;
     }
-
+    .heart{
+        position: absolute;
+        top: 17px;
+        right: 17px;
+    }
+    .watched{
+        position: absolute;
+        top: 17px;
+        right: 17px;
+    }
 
 }
+
 
 @keyframes appear{
     from {

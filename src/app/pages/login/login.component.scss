@@ -1,0 +1,88 @@
+@import '../../../themes/theme.scss';
+.login-container{
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .login-form-card{
+        background-color: $dark-1;
+        border-radius: 10px;
+        padding: 2em 4em;
+        display: flex;
+        flex-direction: column;
+        min-width: 50%;
+        .header{
+            h1{
+                color: $primary-50;
+                font-size: 1.5rem;
+                margin-bottom: 1em;
+                margin-top: 1em;
+            }
+        }
+        .login-form{
+            .input-group{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1em;
+                input{
+                    border: none;
+                    background-color: $grey-800;
+                    padding: 1em;
+                    border-radius: 5px;
+                }
+                label{
+                    margin-bottom: 0.5em;
+                    font-weight: 500;
+                    color: $grey-400
+                }
+            }
+            .submit-button{
+                background-color: $primary;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                padding: 0.75em 0em;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: $primary-50;
+                margin-top: 0.5em;
+                margin-bottom: 1em;
+                cursor: pointer;
+            }
+            .submit-button:hover{
+                background-color: $dark-1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .login-container{
+        .login-form-card{
+            min-width: 70%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 860px) {
+    .login-container{
+        .login-form-card{
+            min-width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .login-container{
+        .login-form-card{
+            min-width: 100%;
+            padding: 1em 2em;
+            .header{
+                h1{
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

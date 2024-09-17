@@ -1,11 +1,52 @@
 <div class="nav-container">
+    <div class="nav-wrapper">
         <div class="logo-section" routerLink="/home">
-            
         </div>
+
         <div class="links-section">
             <ul>
                 <li routerLink="/movies" routerLinkActive="active-item">Movies</li>
-                <li routerLink="/tv-shows" routerLinkActive="active-item">TV Shows</li>
+                <li routerLink="/tv-shows" routerLinkActive="active-item">
+                   TV Shows</li>
             </ul>
         </div>
+        <div class="links-section">
+            @if(!auth.isAuthenticated()){
+                <ul>
+                    <li routerLink="/login" routerLinkActive="active-item">Login</li>
+                    <li routerLink="/register" routerLinkActive="active-item">Sign up</li>
+                </ul>
+            }@else {
+                <ul>
+                    <li routerLink="/favorites"  routerLinkActive="active-item">Watch List</li>
+                    <li (click)="auth.logout()">Sign out</li>
+
+                </ul>
+            }
+
+        </div>
+        <div class="mobile-menu" (click)="toggleMenu()">
+            <i class='bi bi-list'></i>
+            <div *ngIf="menuOpen" class="menu">
+                <ul>
+                    <li routerLink="/movies" routerLinkActive="active-item">Movies</li>
+                    <li routerLink="/tv-shows" routerLinkActive="active-item">
+                       TV Shows</li>
+                </ul>
+                @if(!auth.isAuthenticated()){
+                    <ul>
+                        <li routerLink="/login" routerLinkActive="active-item">Login</li>
+                        <li routerLink="/register" routerLinkActive="active-item">Sign up</li>
+                    </ul>
+                }@else {
+                    <ul>
+                        <li routerLink="/favorites"  routerLinkActive="active-item">Watch List</li>
+                        <li (click)="auth.logout()">Sign out</li>
+    
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+
 </div>
