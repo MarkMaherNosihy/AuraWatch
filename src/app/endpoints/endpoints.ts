@@ -15,7 +15,7 @@ export class Endpoints{
     static TV_TOP_RATED = 'tv/top_rated';
     static MOVIE_RECOMMEND = (movie_id: string | null) => `movie/${movie_id}/recommendations`;
     static TV_RECOMMEND = (series_id: string | null) => `tv/${series_id}/recommendations`;
-    static LOGIN = 'http://localhost:3000/login';
-    static REGISTER = 'http://localhost:3000/register';
+    static LOGIN = 'login';
+    static REGISTER = 'register';
     static SEARCH = `search/multi`
 }

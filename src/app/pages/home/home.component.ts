@@ -88,7 +88,6 @@ export class HomeComponent implements OnInit {
         this.currentPage = page;
       },
       error: (err: any)=>{
-        console.log(err);
         this.isLoading =false;
       }
     });
@@ -113,7 +112,6 @@ export class HomeComponent implements OnInit {
         this.isLoading = false;
       },
       error: (err: any) => {
-        console.log(err);
         this.isLoading = false;
       }
     });

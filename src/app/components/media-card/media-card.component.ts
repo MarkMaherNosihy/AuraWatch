@@ -36,16 +36,13 @@ export class MediaCardComponent {
       this.toaster.info("Already added to favorites");
       return;
     }
-      console.log(this.media);
       this.favService.addToFav(this.media).subscribe({
         next: (res:any)=>{
-          console.log(res);
           this.toaster.info("Added to favorites");
           this.isFavorite=true;
         },
         error: (err:any)=>{
           this.toaster.info("An Error has occured.")
-          console.log(err);
         }
       });
   }

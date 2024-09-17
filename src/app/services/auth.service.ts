@@ -16,11 +16,11 @@ export class AuthService {
 
 
   login(body:any){
-    return this.api.post(Endpoints.LOGIN, '', body);
+    return this.api.postAuth(Endpoints.LOGIN, '', body);
   }
 
   register(body:any){
-    return this.api.post(Endpoints.REGISTER, '', body)
+    return this.api.postAuth(Endpoints.REGISTER, '', body)
   }
 
 

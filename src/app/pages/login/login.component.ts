@@ -59,10 +59,8 @@ export class LoginComponent implements OnInit {
         this.auth.user = res;
         localStorage.setItem('user', JSON.stringify(res));
         this.router.navigateByUrl('/');
-        console.log(res);
       },
       error: (err: any)=>{
-        console.log(err);
         if(err.error === "Invalid credentials" || err.error === "User not found"){
           this.error = "Incorrect Email or Password"
           this.toaster.error(this.error,'',{

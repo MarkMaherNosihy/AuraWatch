@@ -50,7 +50,6 @@ export class RecommendationsComponent implements OnInit {
         this.list = res.results;
       },
       error: (err: any)=>{
-        console.log(err);
       }
     })  
   }

@@ -93,11 +93,9 @@ export class DetailsComponent implements OnInit {
             }).filter((actor: any) => actor !== null)
           })).subscribe((res: Actor[])=>{
             this.cast = res;
-            console.log(res);
           })
         },
         error: (err) => {
-          console.log(err);
           this.contentLoading = false;
         }
       });
@@ -144,13 +142,11 @@ export class DetailsComponent implements OnInit {
               }).filter((actor: any) => actor !== null)
             })).subscribe((res: Actor[])=>{
               this.cast = res;
-              console.log(res);
             })
           })
 
         },
         error: (err) => {
-          console.log(err);
           this.contentLoading = false;
         }
       });

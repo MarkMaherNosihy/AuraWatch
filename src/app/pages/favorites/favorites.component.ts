@@ -37,10 +37,8 @@ export class FavoritesComponent implements OnInit {
     this.favoriteService.getAllFav().subscribe({
       next: (res: MediaItem[])=>{
         this.favorites = res;
-        console.log(res);
       },
       error: (err:any)=>{
-        console.log(err);
       }
     })
   }
@@ -48,16 +46,12 @@ export class FavoritesComponent implements OnInit {
   deleteFavorite(id: string){
     this.favoriteService.deleteFavById(id).subscribe({
       next: (res: any)=>{
-        console.log(res);
         this.favorites = this.favorites.filter((item)=>{
           return item._id !== id;
         })
-        console.log("Deleted");
         this.toaster.info('Removed successfully.', 'Removed');
       },
       error: (err: any)=>{
-        console.log(err);
-        console.log("ERRORRRR");
       }
     });
   }
@@ -66,14 +60,12 @@ export class FavoritesComponent implements OnInit {
   toggleWatched(id: string){
     this.favoriteService.toggleWatched(id).subscribe({
       next: (res:any)=>{
-        console.log(res);
         let item = this.favorites.find((mediaItem)=>mediaItem._id === id);
         if (item?.media) {
           item.media.isWatched = !item.media.isWatched;
         }
       },
       error: (err:any)=>{
-        console.log(err);
       }
     });
   }

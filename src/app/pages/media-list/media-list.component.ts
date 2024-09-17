@@ -55,7 +55,6 @@ export class MediaListComponent implements OnInit {
     this.queryParamsSubscription = this.route.queryParams.subscribe(params => {
       const page = +params['page'] || 1; // Default to page 1 if not specified
       const listEndpoint = params['list'] ? params['list'] : (this.mediaType === 'movies' ? this.movieEndpoint : this.tvEndpoint);
-      console.log(listEndpoint);
       this.currentPage = page;
       this.fetchMedia(this.currentPage, listEndpoint);
     });
@@ -68,10 +67,8 @@ export class MediaListComponent implements OnInit {
         this.mediaList = res.results;
         this.totalPages = res.total_pages;
         this.isLoading = false;
-        console.log(res);
       },
       error: (err) => {
-        console.log(err);
         this.isLoading = false;
       }
     });
@@ -91,7 +88,6 @@ export class MediaListComponent implements OnInit {
     this.currentPage = 1;
 
     // this.queryParamsSubscription.unsubscribe();
-    console.log(endpoint);
     this.router.navigate([],{
       relativeTo: this.route,
       queryParamsHandling: 'merge',
