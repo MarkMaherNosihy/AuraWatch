@@ -1,27 +1,53 @@
-# MovieWebApp
+# AuraWatch 🎬
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+AuraWatch is a web application that allows users to browse trending movies and TV shows using data from the TMDB API. The project is built with **Angular** on the front end and **Express.js** on the back end. AuraWatch provides an intuitive and personalized experience for users, featuring authentication, user accounts, favorites, and watchlists.
 
-## Development server
+## Features ✨
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Trending Movies & TV Shows**: View the latest trending content powered by the TMDB API.
+- **Search & Filtering**: Filter movies and shows by genre, rating, and release date.
+- **Authentication**: Secure user authentication with JWT (JSON Web Token).
+- **Personalized Profiles**: Each user has their own account to manage their watchlists and favorites.
+- **Favorites & Watchlist**: Save movies and TV shows for easy access later.
+- **Responsive Design**: Fully responsive layout optimized for both desktop and mobile devices.
+- **Backend API**: Built with Express.js to handle API requests, user authentication, and database operations.
 
-## Code scaffolding
+## Tech Stack 🛠️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Front-End**: Angular, TypeScript, HTML, CSS
+- **Back-End**: Node.js, Express.js, JWT
+- **Database**: MongoDB
+- **External API**: TMDB API
+- **Hosting**: Front-end hosted on Vercel
+- **Version Control**: Git, GitHub
 
-## Build
+## Installation & Setup 🛠️
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+Make sure you have the following installed:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+- [MongoDB](https://www.mongodb.com/)
+- TMDB API Key: You can get one by signing up at [TMDB](https://www.themoviedb.org/).
 
-## Running end-to-end tests
+### Steps to Set Up Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/aura-watch.git
+   cd aura-watch
 
-## Further help
+2. **Run the application**:
+```bash
+    npm i
+    ng serve
+![image](https://github.com/user-attachments/assets/6bfeac5f-51c9-423b-9367-76c5b8a2daf1)
+![image](https://github.com/user-attachments/assets/bf388f03-d421-47c3-9d7a-c649a44e2419)
+![image](https://github.com/user-attachments/assets/20b99441-d6ba-48d0-8634-d0bc6f2c3461)
+![image](https://github.com/user-attachments/assets/805128ce-8022-4a9d-af7c-818372b2daa6)
+![image](https://github.com/user-attachments/assets/83bdf225-4e1a-4ff9-b417-64aa0a07d575)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
