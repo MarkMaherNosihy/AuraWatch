@@ -43,11 +43,10 @@ Make sure you have the following installed:
 ```bash
     npm i
     ng serve
+```
+
 ![image](https://github.com/user-attachments/assets/6bfeac5f-51c9-423b-9367-76c5b8a2daf1)
 ![image](https://github.com/user-attachments/assets/bf388f03-d421-47c3-9d7a-c649a44e2419)
 ![image](https://github.com/user-attachments/assets/20b99441-d6ba-48d0-8634-d0bc6f2c3461)
 ![image](https://github.com/user-attachments/assets/805128ce-8022-4a9d-af7c-818372b2daa6)
 ![image](https://github.com/user-attachments/assets/83bdf225-4e1a-4ff9-b417-64aa0a07d575)
-
-
-
