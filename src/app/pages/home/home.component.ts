@@ -105,11 +105,14 @@ export class HomeComponent implements OnInit {
   }
   fetchTrendingMovies(page: number): void {
     this.isLoading = true;
-    this.httpService.get(Endpoints.TRENDS, `language=en-US&page=${page}`).subscribe({
+    this.httpService.get(Endpoints.TRENDS, `language=en-US&page=${page}`).pipe(
+      tap((res: any)=> this.totalPages = res.total_pages),
+      map(
+        (res: any)=>res.results.filter((item: any)=> item.media_type !== 'person'))).subscribe({
       next: (res: any) => {
-        this.trendsList = res.results;
-        this.totalPages = res.total_pages;
+        this.trendsList = res;
         this.isLoading = false;
+        console.log(res);
       },
       error: (err: any) => {
         this.isLoading = false;
